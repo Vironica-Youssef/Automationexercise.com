@@ -26,7 +26,7 @@
 
 
 
-### Prerequisites
+## Prerequisites
 
 - Java Development Kit (JDK) installed
 - IDE (eg: IntelliJ IDEA, Eclipse)
