@@ -51,13 +51,22 @@ public class AllureReportGenerator {
         }
     }
 
-    //copy history folder to results folder
     public static void copyHistory() {
         try {
-            FileUtils.copyDirectory(HISTORY_FOLDER.toFile(), RESULTS_HISTORY_FOLDER.toFile());
+            if (java.nio.file.Files.exists(HISTORY_FOLDER)) {
+                FileUtils.copyDirectory(HISTORY_FOLDER.toFile(), RESULTS_HISTORY_FOLDER.toFile());
+            }
         } catch (Exception e) {
             LogsManager.error("Error copying history files", e.getMessage());
         }
     }
+//    //copy history folder to results folder
+//    public static void copyHistory() {
+//        try {
+//            FileUtils.copyDirectory(HISTORY_FOLDER.toFile(), RESULTS_HISTORY_FOLDER.toFile());
+//        } catch (Exception e) {
+//            LogsManager.error("Error copying history files", e.getMessage());
+//        }
+//    }
 
 }

@@ -18,7 +18,7 @@ public class AllureAttachmentManager {
         try {
             Path screenshot = Path.of(path);
             if (Files.exists(screenshot)) {
-                Allure.addAttachment(name, Files.newInputStream(screenshot));
+                Allure.attachment(name, Files.newInputStream(screenshot));
             } else {
                 LogsManager.error("Screenshot not found: " + path);
             }
@@ -45,7 +45,7 @@ public class AllureAttachmentManager {
             try {
                 File record = new File(ScreenRecordManager.RECORDINGS_PATH + testMethodName);
                 if (record != null && record.getName().endsWith(".mp4")) {
-                    Allure.addAttachment(testMethodName, "video/mp4", Files.newInputStream(record.toPath()), ".mp4");
+                    Allure.attachment(testMethodName, "video/mp4", ".mp4");
                 }
             } catch (Exception e) {
                 LogsManager.error("Error attaching records", e.getMessage());
